@@ -1,13 +1,13 @@
-package com.example.dataSourceExperience;
+package com.example.CookingProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class DataSourceExperienceApplication {
+public class CookingProjectApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext run = SpringApplication.run(DataSourceExperienceApplication.class, args);
+		ConfigurableApplicationContext run = SpringApplication.run(CookingProjectApplication.class, args);
 	}
 }
