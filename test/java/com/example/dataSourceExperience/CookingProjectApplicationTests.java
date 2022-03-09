@@ -1,4 +1,4 @@
-package com.example.dataSourceExperience;
+package com.example.CookingProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
