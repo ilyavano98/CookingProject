@@ -10,7 +10,7 @@ public class MainController {
     @GetMapping("/")
     public String greeting(Model model) {
         String title = "Главная страница";
-        String name = "Ты тут я тут у нас кулинария";
+        String name = "Диман, ты тут?";
         model.addAttribute("title", title);
         model.addAttribute("name", name);
         return "index";
