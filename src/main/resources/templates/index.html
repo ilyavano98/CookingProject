@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title th:text="${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/style/style.css">
 </head>
 <body>
 <p th:text="'Hello, ' + ${name} + '!'" />
 <div>
-    <a href="/">Главная страница</a><br>
+    <a href="/" class="c">Главная страница</a><br>
     <a href="/game?firstName=некая информация для передачи дальше и отображения на следующей странице">Играть</a><br>
     <a href="/reit">Рейтинг</a><br>
     <a href="/reg">Регистрация</a><br>
