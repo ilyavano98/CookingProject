@@ -1,4 +1,7 @@
 package com.example.CookingProject.controllers;
+import com.example.CookingProject.models.ComboTable;
+import com.example.CookingProject.repo.ComboTableRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
+    @Autowired
+    private ComboTableRepository comboTable;
+
     @GetMapping("/")
     public String firstPagaOpen(Model model) {
+        Iterable<ComboTable> combo = comboTable.findAll();
         String title = "Главная страница";
         String name = "Диман, ты тут?";
+        model.addAttribute("combo", combo);
         model.addAttribute("title", title);
         model.addAttribute("name", name);
         return "index";

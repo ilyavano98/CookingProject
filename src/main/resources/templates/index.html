@@ -13,6 +13,12 @@
     <a href="/reit">Рейтинг</a><br>
     <a href="/reg">Регистрация</a><br>
     <a href="/out">Выход</a><br>
+
+    <div th:each="el : ${combo}">
+        <span th:text="${el.getId()}"></span>
+        <span th:text="${el.getComboText()}"></span>
+    </div>
+
 </div>
 </body>
 </html>
