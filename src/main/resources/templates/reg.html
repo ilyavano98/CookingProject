@@ -3,11 +3,19 @@
 <head>
   <title th:text="${title}"></title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" href="/style/reg.css">
 </head>
 <body>
-
-<div>
-  <p th:text="'Hello, ' + ${name} + '!'" />
-</div>
+  <div id="login">
+    <form action="javascript:void(0);" method="get">
+      <fieldset class="clearfix">
+        <p>ЛОГИН</p>
+        <p><span class="fontawesome-user"></span><input type="text" value="Логин" onBlur="if(this.value == '') this.value = 'Логин'" onFocus="if(this.value == 'Логин') this.value = ''" required></p>
+        <p>ПАРОЛЬ</p>
+        <p><span class="fontawesome-lock"></span><input type="password"  value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required></p>
+        <p><input type="submit" value="СОХРАНИТЬ"></p>
+      </fieldset>
+    </form>
+  </div>
 </body>
 </html>

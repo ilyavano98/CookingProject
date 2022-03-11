@@ -14,7 +14,7 @@ public class MainController {
     private ComboTableRepository comboTable;
 
     @GetMapping("/")
-    public String firstPagaOpen(Model model) {
+    public String firstPageOpen(Model model) {
         Iterable<ComboTable> combo = comboTable.findAll();
         String title = "Главная страница";
         String name = "Диман, ты тут?";
@@ -41,10 +41,19 @@ public class MainController {
         return "game";
     }
 
+    @GetMapping("/loginAccount")
+    public String loginAccountPageOpen(Model model) {
+        String title = "Вход в личный кабинет";
+        String name = "тут тело страницы входа";
+        model.addAttribute("title", title);
+        model.addAttribute("name", name);
+        return "loginAccount";
+    }
+
     @GetMapping("/reg")
     public String regPageOpen(Model model) {
         String title = "Регистрация";
-        String name = "тут тело страницы выхода";
+        String name = "тут тело страницы регистрации";
         model.addAttribute("title", title);
         model.addAttribute("name", name);
         return "reg";

@@ -1,24 +1,25 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="/style/style.css">
+    <link type="text/css" rel="stylesheet" href="/style/index.css">
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
 <div>
-    <a href="/" class="c">Главная страница</a><br>
-    <a href="/game?firstName=некая информация для передачи дальше и отображения на следующей странице">Играть</a><br>
-    <a href="/reit">Рейтинг</a><br>
-    <a href="/reg">Регистрация</a><br>
-    <a href="/out">Выход</a><br>
+    <ul>
+        <li><a href="/" class="c">Главная страница</a></li>
+        <li><a href="/game?firstName=некая информация для передачи дальше и отображения на следующей странице">Играть</a></li>
+        <li><a href="/reit">Рейтинг</a></li>
+        <li><a href="/loginAccount">Войти в личный кабинет</a></li>
+        <li><a href="/out">Выход</a></li>
+    </ul>
 
     <div th:each="el : ${combo}">
         <span th:text="${el.getId()}"></span>
         <span th:text="${el.getComboText()}"></span>
     </div>
-
 </div>
+<p th:text="'Hello, ' + ${name} + '!'" />
 </body>
 </html>
