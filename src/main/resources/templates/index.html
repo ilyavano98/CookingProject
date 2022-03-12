@@ -6,20 +6,21 @@
     <link type="text/css" rel="stylesheet" href="/style/index.css">
 </head>
 <body>
-<div>
-    <ul>
-        <li><a href="/" class="c">Главная страница</a></li>
-        <li><a href="/game?firstName=некая информация для передачи дальше и отображения на следующей странице">Играть</a></li>
-        <li><a href="/reit">Рейтинг</a></li>
-        <li><a href="/loginAccount">Войти в личный кабинет</a></li>
-        <li><a href="/out">Выход</a></li>
-    </ul>
-
-    <div th:each="el : ${combo}">
-        <span th:text="${el.getId()}"></span>
-        <span th:text="${el.getComboText()}"></span>
+    <div>
+        <ul>
+            <li><a href="/" class="c">Главная страница</a></li>
+            <li><a href="/game?firstName=некая информация для передачи дальше и отображения на следующей странице">Играть</a></li>
+            <li><a href="/reit">Рейтинг</a></li>
+            <li><a href="/loginAccount">Войти в личный кабинет</a></li>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Выход"/>
+            </form>
+        </ul>
+        <div th:each="el : ${combo}">
+            <span th:text="${el.getId()}"></span>
+            <span th:text="${el.getComboText()}"></span>
+        </div>
     </div>
-</div>
-<p th:text="'Hello, ' + ${name} + '!'" />
+    <p th:text="'Hello, ' + ${name} + '!'" />
 </body>
 </html>

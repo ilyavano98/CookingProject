@@ -41,14 +41,14 @@ public class MainController {
         return "game";
     }
 
-    @GetMapping("/loginAccount")
-    public String loginAccountPageOpen(Model model) {
-        String title = "Вход в личный кабинет";
-        String name = "тут тело страницы входа";
-        model.addAttribute("title", title);
-        model.addAttribute("name", name);
-        return "loginAccount";
-    }
+//    @GetMapping("/loginAccount")
+//    public String loginAccountPageOpen(Model model) {
+//        String title = "Вход в личный кабинет";
+//        String name = "тут тело страницы входа";
+//        model.addAttribute("title", title);
+//        model.addAttribute("name", name);
+//        return "loginAccount";
+//    }
 
     @GetMapping("/reg")
     public String regPageOpen(Model model) {
@@ -59,13 +59,13 @@ public class MainController {
         return "reg";
     }
 
-    @GetMapping("/out")
-    public String outPage(Model model) {
-        String title = "Страница обработки выхода с аккаунта";
-        String name = "а эта тсраница будет скваозная, потому что ее код будет выполняться в джаве";
-        model.addAttribute("title", title);
-        model.addAttribute("name", name);
-        return "out";
-    }
+//    @GetMapping("/out")
+//    public String outPage(Model model) {
+//        String title = "Страница обработки выхода с аккаунта";
+//        String name = "а эта тсраница будет скваозная, потому что ее код будет выполняться в джаве";
+//        model.addAttribute("title", title);
+//        model.addAttribute("name", name);
+//        return "out";
+//    }
 
 }
