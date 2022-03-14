@@ -6,13 +6,12 @@
   <link type="text/css" rel="stylesheet" href="/style/reg.css">
 </head>
 <body>
-  <div id="login">
-    <form action="javascript:void(0);" method="get">
+  <div id="usr">
+    <span th:text="${message}"></span><br>
+    <form th:action="@{/reg}" method="post">
       <fieldset class="clearfix">
-        <p>ЛОГИН</p>
-        <p><span class="fontawesome-user"></span><input type="text" value="Логин" onBlur="if(this.value == '') this.value = 'Логин'" onFocus="if(this.value == 'Логин') this.value = ''" required></p>
-        <p>ПАРОЛЬ</p>
-        <p><span class="fontawesome-lock"></span><input type="password"  value="Пароль" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required></p>
+        <p><span class="fontawesome-user"></span><input type="text" name="username" placeholder="Логин" value="" onBlur="if(this.value == '') this.value = 'Логин'" onFocus="if(this.value == 'Логин') this.value = ''" required></p>
+        <p><span class="fontawesome-lock"></span><input type="password" name="password" placeholder="Пароль" value="" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required></p>
         <p><input type="submit" value="СОХРАНИТЬ"></p>
       </fieldset>
     </form>

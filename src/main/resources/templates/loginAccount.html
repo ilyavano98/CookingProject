@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="/style/loginAccount.css">
 </head>
 <body>
-    <div id="login">
+    <div id="usr">
         <form th:action="@{/loginAccount}" method="post">
             <fieldset class="clearfix">
                 <p><span class="fontawesome-user"></span><input name="username" type="text" value="Логин" onBlur="if(this.value == '') this.value = 'Логин'" onFocus="if(this.value == 'Логин') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->

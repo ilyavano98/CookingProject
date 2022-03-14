@@ -16,6 +16,9 @@
                 <input type="submit" value="Выход"/>
             </form>
         </ul>
+        <div>
+            <span th:inline="text">[[${#httpServletRequest.remoteUser}]]</span>
+        </div>
         <div th:each="el : ${combo}">
             <span th:text="${el.getId()}"></span>
             <span th:text="${el.getComboText()}"></span>

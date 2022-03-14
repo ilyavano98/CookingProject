@@ -38,7 +38,7 @@ public class MainController {
         String name = "тут таблица рейтинга";
         model.addAttribute("title", title);
         model.addAttribute("name", name);
-        return "game";
+        return "reit";
     }
 
 //    @GetMapping("/loginAccount")
@@ -50,14 +50,14 @@ public class MainController {
 //        return "loginAccount";
 //    }
 
-    @GetMapping("/reg")
-    public String regPageOpen(Model model) {
-        String title = "Регистрация";
-        String name = "тут тело страницы регистрации";
-        model.addAttribute("title", title);
-        model.addAttribute("name", name);
-        return "reg";
-    }
+//    @GetMapping("/reg")
+//    public String regPageOpen(Model model) {
+//        String title = "Регистрация";
+//        String name = "тут тело страницы регистрации";
+//        model.addAttribute("title", title);
+//        model.addAttribute("name", name);
+//        return "reg";
+//    }
 
 //    @GetMapping("/out")
 //    public String outPage(Model model) {
