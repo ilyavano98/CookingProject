@@ -3,11 +3,73 @@
 <head>
     <title th:text="${title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="/js/jquery-1.11.3.min.js" ></script>
+    <style>
+        .pos
+        {
+            position: absolute;
+            right: 50px;
+        }
+    </style>
 </head>
 <body>
+<span th:inline="text" id="usr_name" style="display: none;">[[${#httpServletRequest.remoteUser}]]</span>
 
+<div>
+    <input type="text" id="str_combo" name="str_combo" value=""/>
+    <input type="button" id="btnFind" name="btnFind" value="Проверить">
+    <div id="message"></div>
+</div>
+
+<div class="pos">
+    <table>
+        <thead>
+            <th cospan="3">Ингридиенты</th>
+        </thead>
+        <tbody>
+        <tr th:each="el : ${arIngredients}">
+            <td th:text="${el.getId()}"></td>
+            <td th:text="${el.getComboText()}"></td>
+            <td th:text="${el.getName_combo()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 <div>
     <p th:text="'Hello, ' + ${name} + '!'" />
 </div>
+<script type="text/javascript">
+    var par= document.getElementById("usr_name").textContent;
+    function onFindCombo(ev)
+    {
+        var str_send = document.getElementById("str_combo").value
+        request = {name : str_send};
+        if(par != "")
+        {
+            $.ajax({
+                url: '/findController',
+                type: 'post',
+                contentType:"application/json",
+                data: JSON.stringify(request),
+                success: function(status, body, data){
+                    if(data.responseJSON != "NOT_FOUND")
+                    {
+                        console.log(data);
+                        $('#message').html(data.responseJSON.name_combo);
+                    }
+                    else
+                    {
+                        $('#message').html(data.responseJSON);
+                    }
+                }
+            });
+        }
+    }
+    window.onload = function()
+    {
+        console.log(par);
+        document.getElementById("btnFind").onclick = onFindCombo;
+    }
+</script>
 </body>
 </html>

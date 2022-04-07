@@ -1,24 +1,34 @@
 package com.example.CookingProject.controllers;
+
 import com.example.CookingProject.models.ComboTable;
-import com.example.CookingProject.repo.ComboTableRepository;
+import com.example.CookingProject.models.Ingredients;
+import com.example.CookingProject.repo.IngredientsRepo;
+import com.example.CookingProject.services.ComboTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class MainController {
 
     @Autowired
-    private ComboTableRepository comboTable;
+    private ComboTableService comboTable;
+    @Autowired
+    private IngredientsRepo ingredients;
 
     @GetMapping("/")
     public String firstPageOpen(Model model) {
-        Iterable<ComboTable> combo = comboTable.findAll();
+//        Iterable<ComboTable> combo = comboTable.getAll();
+        String str = "Новый текст (проверка Димана)";
+        ComboTable comboFind = comboTable.findByComboText(str);
+        System.out.println(comboFind.getId());
         String title = "Главная страница";
         String name = "Диман, ты тут?";
-        model.addAttribute("combo", combo);
+//        model.addAttribute("combo", comboFind.getComboText());
         model.addAttribute("title", title);
         model.addAttribute("name", name);
         return "index";
@@ -27,8 +37,10 @@ public class MainController {
     @GetMapping("/game")
     public String gameOpen(@RequestParam String firstName, Model model) {
         String title = "Игровая страница";
+        List<Ingredients> arIngredients = ingredients.findAll();
         model.addAttribute("title", title);
         model.addAttribute("name", firstName);
+        model.addAttribute("arIngredients", arIngredients);
         return "game";
     }
 

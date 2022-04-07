@@ -18,8 +18,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().disable()
+                .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/","/reg","/style/index.css", "/style/reg.css", "/style/loginAccount.css").permitAll()
+                    .antMatchers("/","/reg","/style/index.css", "/style/reg.css", "/style/loginAccount.css",
+                            "/js/jguery-1.11.3.min.js").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
